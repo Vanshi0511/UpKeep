@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:elevation="11dp"
+    app:cardCornerRadius="14dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/red_hat"
+                android:text="Are you sure you want to LogOut?"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <ImageView
+                android:id="@+id/imgCross"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/cross" />
+
+            <Button
+                android:id="@+id/btnNo"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/green"
+                android:fontFamily="@font/red_hat"
+                android:letterSpacing="0"
+                android:text="NO" />
+
+            <TextView
+                android:id="@+id/btnYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="33dp"
+                android:layout_toLeftOf="@+id/btnNo"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/red_hat"
+                android:letterSpacing="0"
+                android:text="YES"
+                android:textColor="@color/black" />
+
+
+        </RelativeLayout>
+</androidx.cardview.widget.CardView>

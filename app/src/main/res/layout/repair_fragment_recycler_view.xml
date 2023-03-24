@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="7dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/relative1"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:background="#78646c"
+                    android:src="@drawable/repair_image"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+                <TextView
+                    android:id="@+id/typeOfRepair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toRightOf="@id/image"
+                    android:text="Kitchen fan does not on"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/typeOfRepair"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image"
+                    android:text="512 , BTC Main road , Indore"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="17dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/right_arrow_draw" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/propertyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Arbutus Infotech Software"
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/propertyAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/propertyName"
+                    android:layout_centerHorizontal="true"
+                    android:text="Mz-5 Bansi trade centre indore"
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imageRepair"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_below="@+id/propertyAddress"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/door_image" />
+
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_below="@+id/imageRepair"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/btnTenantContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/green"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:src="@drawable/repair_img_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnRepairContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/green"
+                        android:layout_weight="1">
+
+
+                        <ImageView
+                            android:src="@drawable/repair_img_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/markResolved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear"
+                    android:layout_centerHorizontal="true"
+                    android:layoutDirection="rtl"
+                    android:text="Mark as Resolved"
+                    android:textSize="23sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

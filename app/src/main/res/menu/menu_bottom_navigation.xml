@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home_bottom"
+        android:icon="@drawable/home_image"
+        android:title="@string/home_bottom"/>
+    <item android:id="@+id/repair_bottom"
+        android:icon="@drawable/repair_image"
+        android:title="@string/repair_bottom"/>
+    <item android:id="@+id/banking_bottom"
+        android:icon="@drawable/dollar_image"
+        android:title="@string/banking_bottom"/>
+    <item android:id="@+id/chat_bottom"
+        android:icon="@drawable/email_image"
+        android:title="@string/chat_bottom"/>
+</menu>

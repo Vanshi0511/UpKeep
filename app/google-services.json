@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "474064267702",
+    "project_id": "upkeep-4f603",
+    "storage_bucket": "upkeep-4f603.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474064267702:android:e130c64579ac08d46cf917",
+        "android_client_info": {
+          "package_name": "com.arbutus.upkeep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474064267702-elsa7mq4r5l69hlg3b3rtds2tlhk1ne4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arbutus.upkeep",
+            "certificate_hash": "bde07d4359a9ef9655f6ef912f378ee915e52898"
+          }
+        },
+        {
+          "client_id": "474064267702-qci2pal5k38t348o3sdb5gp0oe6rpl5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyX-hQyo28WAWTGwXF8PRmcqYd0U_c_iM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474064267702-qci2pal5k38t348o3sdb5gp0oe6rpl5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Up Keep</string>
+    <string name="forgot_underlined"> <u>Forgot Password?</u></string>
+    <string name="sign_up"><u>Sign UP</u></string>
+    <string name="account"><u>Account?</u></string>
+    <string name="terms_conditions"><u>TERMS  CONDITIONS</u></string>
+
+    <string name="open_drawer">open navigation drawer</string>
+    <string name="close_drawer">close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- google sign in client id -->
+    <string name="server_client_id">912243965068-l5cuo5pl70l7rmfoh49sgn1oedgb00om.apps.googleusercontent.com</string>
+
+
+    <string name="facebook_app_id">728004561965483</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">fe3b1054da6034edc05719fcd8a28052</string>
+
+
+    <!-- Navigation drawer -->
+    <string name="manage_banking">MANAGE BANKING</string>
+    <string name="home">HOME</string>
+    <string name="manage_tenants">MANAGE TENANTS</string>
+    <string name="manage_repair_contacts">MANAGE REPAIR CONTACTS</string>
+    <string name="my_properties">MY PROPERTIES</string>
+    <string name="chats">CHATS</string>
+    <string name="settings">SETTINGS</string>
+    <string name="terms_n_conditions">TERMS N CONDITIONS</string>
+    <string name="support">SUPPORT</string>
+    <string name="sign_out">SIGN OUT</string>
+    <string name="home_bottom">HOME</string>
+    <string name="repair_bottom">REPAIR</string>
+    <string name="banking_bottom">BANKING</string>
+    <string name="chat_bottom">CHAT</string>
+    <string name="no_internet">No Internet Found</string>
+
+
+</resources>

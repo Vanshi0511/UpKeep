@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomeFragment2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/imagePager"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"/>
+
+        <TextView
+            android:id="@+id/currentImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="3/7"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="210dp"
+            app:cardCornerRadius="15dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:cardElevation="14dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="My house is a two storied building in the heart of the city. I feel lucky enough to have a house all other facilities. The house is newly built by my father."
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/textPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/description"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:fontFamily="@font/red_hat"
+                    android:text="Payments :-"
+                    android:drawableLeft="@drawable/ic_dollar_green"
+                    android:textColor="@color/green"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:id="@+id/fillProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/textPayment"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/fill_payment_container"
+                    android:orientation="horizontal" />
+
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_below="@+id/fillProgress"
+                    android:orientation="horizontal"
+                    android:background="@drawable/square_border"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/btnReceived"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/square_border"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textReceived"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Received"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="23sp"/>
+
+                        <TextView
+                            android:id="@+id/receivePayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 Payments"
+                            android:drawableLeft="@drawable/received_drawable"
+                            android:drawablePadding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="17sp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+
+                    <LinearLayout
+                        android:id="@+id/btnAwaiting"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@drawable/square_border"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/textAwaiting"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Awaiting"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="23sp"/>
+
+                        <TextView
+                            android:id="@+id/awaitPayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2 Payments"
+                            android:drawableLeft="@drawable/await_drawable"
+                            android:drawablePadding="5dp"
+                            android:textColor="@color/red"
+                            android:textSize="17sp"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/tenant"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@id/linear"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/fill_payment_container"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textTenantContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/red_hat"
+                        android:text="Tenant Contacts"
+                        android:gravity="center_vertical"
+                        android:drawableLeft="@drawable/tenant_contact_drawable"
+                        android:textColor="@color/green"
+                        android:textSize="20sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerTenantContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/tenant_contacts_recycler_view"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_below="@+id/tenant"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/fill_payment_container">
+
+
+                    <TextView
+                        android:id="@+id/textRepairRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/red_hat"
+                        android:text="Repair Request"
+                        android:drawableLeft="@drawable/repair_request_drawable"
+                        android:textColor="@color/green"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="20sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerRepairRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/repair_request_recycler_view"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

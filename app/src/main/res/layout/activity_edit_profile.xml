@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".auth.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/imgBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="17dp"
+        android:src="@drawable/ic_back_arrow" />
+
+    <ImageView
+        android:id="@+id/floor"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo_upkeep" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="11dp"
+        android:layout_below="@+id/floor"
+        app:cardCornerRadius="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/red_hat"
+                android:text="Edit Profile"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <RelativeLayout
+                android:id="@+id/relativeImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/textEditProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/imageLayout"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:padding="1dp"
+                    android:background="@drawable/edittext_border" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/btnEdit"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="3dp"
+                    android:src="@drawable/edit_profile" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/textAddImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeImage"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/red_hat"
+                android:text="Add Image"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textAddImage"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:singleLine="true"
+                android:drawableLeft="@drawable/edit_profile_username"
+                android:drawablePadding="10dp"
+                android:hint="Username"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/username"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:textSize="16sp"
+                android:drawableLeft="@drawable/edit_profile_mail"
+                android:drawablePadding="10dp"
+                android:enabled="false"
+                android:hint="E-mail" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/email"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:drawableLeft="@drawable/edit_profile_lock"
+                android:drawablePadding="10dp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/password"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/femaleRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/edit_profile_female"
+                    android:text="Female"
+                    android:paddingLeft="5dp"
+                    android:textColor="#808080"
+                    android:textSize="17sp" />
+
+                <RadioButton
+                    android:id="@+id/maleRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/edit_profile_male"
+                    android:text="Male"
+                    android:paddingLeft="5dp"
+                    android:layout_marginLeft="80dp"
+                    android:textColor="#808080"
+                    android:textSize="17sp" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@+id/radio_group"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="@color/green"
+                android:fontFamily="@font/red_hat"
+                android:letterSpacing="0"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BankingFragment">
+
+    <TextView
+        android:id="@+id/collectionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/red_hat"
+        android:text="Collected for: May 2018"
+        android:textColor="@color/green"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:id="@+id/fillProgress"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/collectionDate"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/fill_payment_container"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/linearRent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/fillProgress"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/fill_payment_container"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textOweRent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/red_hat"
+            android:text="Owe Rent:"
+            android:textColor="@color/green"
+            android:textSize="22sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerRent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/linearRent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/fill_payment_container"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textQuickView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/red_hat"
+            android:text="2018 Quick View:"
+            android:textColor="@color/green"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textRent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textQuickView"
+            android:layout_marginTop="10dp"
+            android:text="Rent Collected to Date:of"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/numTextRent"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textQuickView"
+            android:layout_alignParentRight="true"
+            android:text="$125,00"
+            android:textColor="@color/green"
+            android:textSize="21sp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:layout_below="@+id/numTextRent"
+            android:layout_alignParentRight="true"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/textRevenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textRent"
+            android:text="Expected Revenue for 2018"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/numTextRevenue"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:layout_alignParentRight="true"
+            android:text="$456.000"
+            android:textColor="@color/green"
+            android:textSize="21sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_below="@+id/relative"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/square_border"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/percent1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="36%"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/percent1Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paid"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/square_border"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/percent2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/percent2Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="of Collected Directly Deposited"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity=""
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/square_border"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/percent3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="36%"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/percent3Text"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="of Due Unpaid"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

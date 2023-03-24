@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+          android:title="@string/home"
+        android:icon="@drawable/home_image"/>
+
+    <item android:id="@+id/manageBanking"
+        android:title="@string/manage_banking"
+        android:icon="@drawable/manage_banking_drawer"/>
+
+    <item android:id="@+id/manageTenants"
+        android:title="@string/manage_tenants"
+        android:icon="@drawable/manage_tenants_drawer"/>
+
+    <item android:id="@+id/manageRepairContacts"
+        android:title="@string/manage_repair_contacts"
+        android:icon="@drawable/repair_image"/>
+
+    <item android:id="@+id/myProperties"
+        android:title="@string/my_properties"
+        android:icon="@drawable/properties_drawer"/>
+
+    <item android:id="@+id/chats"
+        android:title="@string/chats"
+        android:icon="@drawable/ic_chat"/>
+
+    <item android:id="@+id/settings"
+        android:title="@string/settings"
+        android:icon="@drawable/settings_drawer"/>
+
+    <item android:id="@+id/termsConditions"
+        android:title="@string/terms_n_conditions"
+        android:icon="@drawable/terms_conditions_drawer"/>
+
+    <item android:id="@+id/support"
+        android:title="@string/support"
+        android:icon="@drawable/support_drawer"/>
+
+    <item android:id="@+id/signOut"
+        android:title="@string/sign_out"
+        android:icon="@drawable/sign_out_drawer"/>
+
+</menu>

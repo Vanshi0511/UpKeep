@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical"
+    tools:context=".activity_landlord.GetStartedActivity">
+
+    <ImageView
+        android:id="@+id/imgBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="17dp"
+        android:src="@drawable/ic_back_arrow" />
+
+    <ImageView
+        android:id="@+id/floor"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo_upkeep" />
+
+
+    <TextView
+        android:id="@+id/textGetStarted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/floor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/red_hat"
+        android:text="Get Started"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+    <RelativeLayout
+        android:id="@+id/myProperties"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/textGetStarted"
+        android:layout_marginTop="40dp"
+
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/homeImg"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:src="@drawable/home_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/homeImg"
+            android:fontFamily="@font/red_hat"
+            android:text="My properties"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_add" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/repairContacts"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/myProperties"
+        android:layout_marginTop="15dp"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/repairImg"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/repair_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/repairImg"
+            android:fontFamily="@font/red_hat"
+            android:text="Repair Contacts"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_add" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/banking"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/repairContacts"
+        android:layout_marginTop="15dp"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/dollar"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dollar_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/dollar"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/red_hat"
+            android:text="Banking"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_right" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/termsConditions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/banking"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/red_hat"
+            android:text="I ACCEPT TO THE "
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/textTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/red_hat"
+            android:text="Terms n conditions"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnComplete"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/termsConditions"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#459A26"
+        android:fontFamily="@font/red_hat"
+        android:letterSpacing="0"
+        android:text="Complete"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+
+
+</RelativeLayout>

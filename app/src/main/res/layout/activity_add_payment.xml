@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_landlord.AddPaymentActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextColor="@color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <EditText
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:drawableLeft="@drawable/ic_card"
+            android:drawablePadding="10dp"
+            android:hint="Card"
+            android:inputType="phone"
+            android:singleLine="true" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/visa_img"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"/>
+
+        <EditText
+            android:id="@+id/cvc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:drawableLeft="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:hint="CVC"
+            android:inputType="number"
+            android:maxLength="3"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/expiry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cvc"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:drawableLeft="@drawable/ic_expiry_calender"
+            android:drawablePadding="10dp"
+            android:hint="Expiry [MM/YY]"
+            android:inputType="phone"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/zip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expiry"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawablePadding="10dp"
+            android:hint="Zip"
+            android:singleLine="true" />
+
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/green"
+            android:fontFamily="@font/red_hat"
+            android:letterSpacing="0"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_tenant.SubmitMaintaineanceActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar"
+        android:layout_margin="15dp"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/imageBtn"
+                    android:layout_width="84dp"
+                    android:layout_height="90dp">
+
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/edittext_border"
+                        android:padding="15dp"
+                        android:src="@drawable/appartment" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edittext_border"
+                        android:padding="20dp"
+                        android:src="@drawable/ic_add_circle" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textAddImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/red_hat"
+                android:text="Add Picture"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textAddImage"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:drawableLeft="@drawable/apartment_drawable"
+                android:drawablePadding="10dp"
+                android:hint="Character Title"
+                android:singleLine="true"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/name"
+                android:id="@+id/propertyCapacity">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/fan" />
+
+                <Spinner
+                    android:id="@+id/repairSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="3dp"
+                    android:imeOptions="actionNext"
+                    android:autofillHints="Types Of Repair"
+                    android:drawableStart="@drawable/apartment_drawable" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/descriptionLayout"
+                android:layout_below="@+id/propertyCapacity"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/description_layout"
+                android:layout_marginRight="25dp"
+                android:layout_height="80dp">
+
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@drawable/drawable_description_icon"
+                    android:background="@android:color/transparent"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollHorizontally="false"
+                    android:gravity="top"
+                    android:textSize="17sp"
+                    android:scrollbars="vertical"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:maxLines="50"
+                    android:hint="Description..."
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="@color/green"
+                android:fontFamily="@font/red_hat"
+                android:letterSpacing="0"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+
+
+
+
+
+</RelativeLayout>

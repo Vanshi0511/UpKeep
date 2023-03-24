@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.upkeep">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo_upkeep"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo_upkeep"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UpKeep"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity_tenant.SubmitMaintaineanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tenant.ConnectLandlordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tenant.AddPaymentTenantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tenant.MainTenantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tenant.GetStartedTenantActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.EditProfileActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.upkeep.activity_landlord.SupportActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.GetStartedActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.AddPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.AddRepairContactActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.AddPropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.TermsAndConditionsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.auth.SliderActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.auth.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.activity_landlord.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.auth.AccountLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.upkeep.auth.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
