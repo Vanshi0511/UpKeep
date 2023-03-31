@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".NewActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity_tenant.SubmitMaintaineanceActivity"
             android:exported="false" />
         <activity
@@ -36,7 +39,7 @@
             android:name=".activity_tenant.GetStartedTenantActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.EditProfileActivity"
+            android:name=".activity_landlord.EditProfileActivity"
             android:exported="false" />
 
         <meta-data
@@ -63,43 +66,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.upkeep.activity_landlord.SupportActivity"
+            android:name=".activity_landlord.SupportActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.GetStartedActivity"
+            android:name=".activity_landlord.GetStartedActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.AddPaymentActivity"
+            android:name=".activity_landlord.AddPaymentActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.AddRepairContactActivity"
+            android:name=".activity_landlord.AddRepairContactActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.AddPropertyActivity"
+            android:name=".activity_landlord.AddPropertyActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.TermsAndConditionsActivity"
+            android:name=".activity_landlord.TermsAndConditionsActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.MainActivity"
+            android:name=".activity_landlord.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.auth.SliderActivity"
+            android:name=".auth.SliderActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.auth.SignUpActivity"
+            android:name=".auth.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.activity_landlord.DashboardActivity"
+            android:name=".activity_landlord.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.auth.AccountLoginActivity"
+            android:name=".auth.AccountLoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.auth.LoginActivity"
+            android:name=".auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.upkeep.auth.SplashActivity"
+            android:name=".auth.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

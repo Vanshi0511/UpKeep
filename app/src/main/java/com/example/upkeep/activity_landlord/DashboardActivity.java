@@ -20,7 +20,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        amLandlord=findViewById(R.id.amLandlord);
+        amLandlord=findViewById(R.id.amOwner);
         amTenant=findViewById(R.id.amTenant);
 
         new SharedPref(DashboardActivity.this).setValueForAppIsOpened();

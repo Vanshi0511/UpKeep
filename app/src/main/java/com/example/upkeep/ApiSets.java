@@ -6,8 +6,6 @@ import com.example.upkeep.models.AddRepairContactModel;
 import com.example.upkeep.models.EditProfileModel;
 import com.example.upkeep.models.LoginModel;
 import com.example.upkeep.models.LoginResponseModel;
-import com.example.upkeep.models.PaymentTransactionModel;
-import com.example.upkeep.models.RegisterModel;
 import com.example.upkeep.models.RegisterResponseModel;
 import com.example.upkeep.models.SendResetModel;
 
@@ -72,8 +70,8 @@ public interface ApiSets {
     Call<AddPaymentModel> addPaymentCard(@Header("Authorization") String authToken ,@Body AddPaymentModel model);
 
     //for payment transaction
-    @POST("api/user/paymentapi/")
-    Call<AddPaymentModel> addPaymentTransaction(@Header("Authorization") String authToken ,@Body PaymentTransactionModel model);
+    //@POST("api/user/paymentapi/")
+   // Call<AddPaymentModel> addPaymentTransaction(@Header("Authorization") String authToken ,@Body PaymentTransactionModel model);
 
     @POST("/api/user/SendResetPasswordEmail")
     Call<SendResetModel> sendReset(@Body SendResetModel model);

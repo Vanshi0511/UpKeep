@@ -19,7 +19,7 @@
 
     
     <LinearLayout
-        android:id="@+id/amLandlord"
+        android:id="@+id/amOwner"
         android:layout_width="match_parent"
         android:background="@drawable/dashboard_border"
         android:layout_marginLeft="20dp"
@@ -60,7 +60,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
         android:layout_height="140dp"
-        android:layout_below="@+id/amLandlord">
+        android:layout_below="@+id/amOwner">
 
         <ImageView
             android:layout_width="120dp"
