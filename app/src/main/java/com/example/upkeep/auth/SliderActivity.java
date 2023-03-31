@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.RadioButton;
 
 import com.example.upkeep.GoogleLogin;
+import com.example.upkeep.NewActivity;
 import com.example.upkeep.R;
 import com.example.upkeep.activity_landlord.DashboardActivity;
 import com.example.upkeep.adapters.SlideAdapter;
@@ -84,7 +85,7 @@ public class SliderActivity extends AppCompatActivity {
 
     public void navigateToDashboard()
     {
-        Intent intent=new Intent(SliderActivity.this, DashboardActivity.class);
+        Intent intent=new Intent(SliderActivity.this, NewActivity.class);
         startActivity(intent);
         finish();
     }

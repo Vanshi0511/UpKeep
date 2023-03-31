@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.upkeep.ApiController;
+import com.example.upkeep.NewActivity;
 import com.example.upkeep.R;
 import com.example.upkeep.SharedPref;
 import com.example.upkeep.activity_landlord.DashboardActivity;
@@ -188,7 +189,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(LoginActivity.this, DashboardActivity.class);
+                    Intent intent =new Intent(LoginActivity.this, NewActivity.class);
                     startActivity(intent);
                     finishAffinity();
                 }

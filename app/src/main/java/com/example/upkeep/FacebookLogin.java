@@ -69,7 +69,7 @@ public class FacebookLogin
                                             //pref.setToken();
 
                                             Toast.makeText(activity, "Login Successful", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(activity, DashboardActivity.class);
+                                            Intent intent = new Intent(activity, NewActivity.class);
                                             activity.startActivity(intent);
                                             activity.finishAffinity();
                                         } catch (Exception e)

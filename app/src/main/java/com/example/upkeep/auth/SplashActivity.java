@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.upkeep.NewActivity;
 import com.example.upkeep.R;
 import com.example.upkeep.SharedPref;
 import com.example.upkeep.activity_landlord.DashboardActivity;
@@ -26,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
                     if(new SharedPref(SplashActivity.this).getStatusOfAccountLogin().equals("unKnown"))
                         intent=new Intent(SplashActivity.this, AccountLoginActivity.class);
                     else
-                        intent=new Intent(SplashActivity.this, DashboardActivity.class);
+                        intent=new Intent(SplashActivity.this, NewActivity.class);
                 }
                 else
                     intent=new Intent(SplashActivity.this, SliderActivity.class);
