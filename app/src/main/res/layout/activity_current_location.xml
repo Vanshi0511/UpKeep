@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CurrentLocationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/ic_home_page_top_header"
+        android:orientation="vertical"
+        android:padding="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logoImageView"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_upkeep"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/location_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_weight="4.4"
+                android:background="@drawable/button_bg"
+                android:backgroundTint="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:weightSum="5"
+                app:layout_constraintEnd_toEndOf="@+id/signUpButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoImageView">
+
+
+                <TextView
+                    android:id="@+id/location_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4.4"
+                    android:layout_gravity="center_vertical"
+                    android:padding="4dp"
+                    android:hint="Search Location"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageButton
+                    android:id="@+id/current_location_img_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_location" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/green"
+                android:fontFamily="@font/red_hat"
+                android:letterSpacing="0"
+                android:text="Sign Up"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+              android:layout_marginBottom="35dp"
+                app:layout_constraintBottom_toTopOf="@+id/location_layout"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

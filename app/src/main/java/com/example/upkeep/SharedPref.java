@@ -62,4 +62,5 @@ public class SharedPref {
         sharedPreferences = activity.getSharedPreferences("UserLoggedAccount", Context.MODE_PRIVATE);
         return sharedPreferences.getString("token","unKnown");
     }
+
 }

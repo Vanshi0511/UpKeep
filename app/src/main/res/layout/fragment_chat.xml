@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ChatFragment">
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
+
+<!--        &lt;!&ndash;android.support.v7.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="?attr/colorPrimary"-->
+<!--            app:layout_scrollFlags="scroll|enterAlways"-->
+<!--            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" /&ndash;&gt;-->
+
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tabs"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:tabMode="fixed"-->
+<!--            app:tabIndicatorColor="@android:color/white"-->
+<!--            app:tabIndicatorHeight="4dp"-->
+<!--            app:tabPaddingStart="0dp"-->
+<!--            app:tabPaddingEnd="0dp"-->
+<!--            android:background="#6bb252"-->
+<!--            app:tabGravity="fill"/>-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/viewpager"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />-->
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
@@ -23,4 +54,4 @@
         android:layout_height="match_parent"
         android:id="@+id/viewPager"/>
 
-</LinearLayout>
+</RelativeLayout>

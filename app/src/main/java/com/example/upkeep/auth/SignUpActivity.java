@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.upkeep.ApiController;
+import com.example.upkeep.CurrentLocationActivity;
 import com.example.upkeep.R;
 import com.example.upkeep.models.RegisterModel;
 import com.example.upkeep.models.RegisterResponseModel;
@@ -92,7 +94,9 @@ public class SignUpActivity extends AppCompatActivity {
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                Intent in = new Intent(SignUpActivity.this, AccountLoginActivity.class);
+                startActivity(in);
+                finish();
             }
         });
 

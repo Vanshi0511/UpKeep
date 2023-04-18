@@ -35,6 +35,7 @@
     <string name="banking_bottom">BANKING</string>
     <string name="chat_bottom">CHAT</string>
     <string name="no_internet">No Internet Found</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>

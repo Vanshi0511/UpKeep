@@ -1,125 +1,123 @@
 package com.example.upkeep.chat_fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.upkeep.ErrorMessage;
-import com.example.upkeep.NetworkUtil;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.upkeep.R;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.example.upkeep.activity_landlord.MainActivity;
+import com.google.android.material.tabs.TabLayout;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.io.IOException;
+public class ChatFragment extends Fragment
+{
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    ViewPagerAdapter adapter;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class ChatFragmentTab extends Fragment {
-
-
-    public ChatFragmentTab() {
+    public static String tag_to_redirect ="";
+    public ChatFragment(MainActivity mainActivity) {
         // Required empty public constructor
     }
 
-
-
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
-        return  inflater.inflate(R.layout.fragment_chat_child, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_chat,container,false);
+        viewPager = (ViewPager) rootview.findViewById(R.id.viewPager);
+        adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
+        setupViewPager(viewPager);
+
+        tag_to_redirect =    getArguments().getString("tag");
+
+
+        tabLayout = (TabLayout)rootview. findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+        Log.i("tagvalue","tag "+ viewPager.getCurrentItem());
+        get_fragment_From_viewpageradapter();
+        return rootview;
     }
 
-//    private void SendMessageToServer(String _id) {
-//
-//
-//        if (NetworkUtil.isNetworkAvailable(getContext())) {
-//            JsonObject paramObject;
-//            try {
-//                paramObject = new JsonObject();
-//                paramObject.addProperty("_id", _id);
-//                paramObject.addProperty("message", message);
-//                paramObject.addProperty("senderName", landlord);
-//
-//                // Log.d("param",paramObject.toString());
-//
-//                Call<ResponseBody> call = AppConfig.api_Interface().send_message(paramObject);
-//                call.enqueue(new Callback<ResponseBody>() {
-//                    @Override
-//                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                      //  ErrorMessage.E("sendToken" + response.code());
-//                        if (response.isSuccessful()) {
-//
-//                            try {
-//
-//                                try {
-//                                    JSONObject obj = new JSONObject(response.body().string());
-//                                   // ErrorMessage.E("sendToken" + obj.toString());
-//                                    Gson gson = new Gson();
-//                                    if (obj.getString("status").equals("true")) {
-//
-//                                        binding.messageEtv.setText("");
-//
-//                                        AppUtil.hideSoftKeyboard(ChatMainActivity.this);
-//                                    } else {
-//                                       // ErrorMessage.T(ChatMainActivity.this, obj.getString("message"));
-//                                    }
-//
-//
-//                                } catch (Exception e) {
-//                                   // ErrorMessage.E("Exception" + e.toString());
-//                                }
-//
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                               // ErrorMessage.E("Exception" + e.toString());
-//
-//                            }
-//
-//
-//                        } else {
-//                          ErrorMessage.E("sendToken else is working");
-//                            try {
-//                                JSONObject obj = new JSONObject(response.errorBody().string());
-//                               ErrorMessage.T(getContext(), obj.getString("message"));
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                        // ErrorMessage.T(getActivity(), "Response Fail");
-//                        System.out.println("============update profile fail  :" + t.toString());
-//
-//                    }
-//                });
-//            } catch (Exception e) {
-//            }
-//        } else {
-//          ErrorMessage.T(getContext(),getContext().getResources().getString(R.string.no_internet));
-//        }
-//
-//    }
+    private void get_fragment_From_viewpageradapter()
+    {
+        Fragment page = getActivity().getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.container + ":" + viewPager.getCurrentItem());
+                    /*
+                       this method is to get Fragment from ViewPager adapter.
+                       i have commented this code because i am using above code to get Fragment from ViewPager.
+                    */
+        //Fragment page = myPagerAdapter.getItem(mViewPager.getCurrentItem());
+        if (page != null){
+            switch (viewPager.getCurrentItem())
+            {
+                case 0:
+                    OneFragment oneFragment = (OneFragment) page;
+                    Log.i("fragment","one fragment "+oneFragment);
+                    //  oneFragment.print(); //this is public method of Fragment OneFragment.
+                    break;
+                case 1:
+                    TwoFragment twoFragment = (TwoFragment) page;
+                    Log.i("fragment","two fragment "+twoFragment);
+                    //  twoFragment.print();
+                    break;
+            }
 
+        }
+    }
+    private void setupViewPager(ViewPager viewPager)
+    {
+
+        adapter.addFragment(new OneFragment(), "CHAT");
+        adapter.addFragment(new TwoFragment(), "CHAT GROUP");
+        viewPager.setAdapter(adapter);
+    }
+    class ViewPagerAdapter extends FragmentPagerAdapter
+    {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+        public ViewPagerAdapter(FragmentManager manager)
+        {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
 }
