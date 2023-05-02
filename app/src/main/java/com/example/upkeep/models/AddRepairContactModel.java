@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class AddRepairContactModel {
 
+
     @SerializedName("name")
     private String name;
 
@@ -17,7 +18,8 @@ public class AddRepairContactModel {
     private String type_of_repairs;
 
     private boolean expand;
-
+    public AddRepairContactModel() {
+    }
 
     public AddRepairContactModel(String name, String email, String contact_no, String type_of_repairs) {
         this.name = name;

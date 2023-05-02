@@ -62,7 +62,7 @@
                 android:layout_marginRight="15dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/username"
+                    android:id="@+id/emailAddress"
                     android:layout_width="match_parent"
                     android:singleLine="true"
                     android:imeOptions="actionNext"

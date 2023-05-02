@@ -20,6 +20,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 
 public interface ApiSets {
@@ -49,7 +50,7 @@ public interface ApiSets {
 
     //for add property
     @Multipart
-    @POST("/Property/prop/")
+    @POST("/api/user/properties")
     Call<AddPropertyModel> addProperty(@Header("Authorization") String authToken,@Part("propertyName")RequestBody propertyName ,
                                        @Part("totalRoom")RequestBody totalRoom,
                                        @Part("propertyCapacity")RequestBody propertyCapacity,
@@ -62,7 +63,8 @@ public interface ApiSets {
                                        @Part MultipartBody.Part image );
 
     //for getting property
-    @GET("/Property/prop/")
+   // @GET("/Property/prop/")
+    @GET("/admin_panel/property")
     Call<List<AddPropertyModel>> getProperty(@Header("Authorization") String authToken);
 
     //for add payment card
@@ -76,8 +78,8 @@ public interface ApiSets {
     @POST("/api/user/SendResetPasswordEmail")
     Call<SendResetModel> sendReset(@Body SendResetModel model);
 
-    @POST("")
-    Call<EditProfileModel> addRepairContact(@Body EditProfileModel model);
+    @PUT("/Edit/update")
+    Call<EditProfileModel> editProfile(@Header("Authorization") String authToken,@Body EditProfileModel model);
 
 
 

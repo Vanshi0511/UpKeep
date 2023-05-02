@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 import com.example.upkeep.ApiController;
 import com.example.upkeep.R;
+import com.example.upkeep.SharedPref;
 import com.example.upkeep.models.AddPaymentModel;
+import com.example.upkeep.models.AddPropertyModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -232,9 +234,10 @@ public class AddPaymentActivity extends AppCompatActivity {
     }
     private void adddata(AddPaymentModel model)
     {
-        String token ="";
+        String authToken =  "Bearer "+ new SharedPref(AddPaymentActivity.this).getToken();
+
         Call<AddPaymentModel> call = ApiController.getInstance() // need a URL
-                .getApiSets().addPaymentCard(token,model);
+                .getApiSets().addPaymentCard(authToken,model);
 
         call.enqueue(new Callback<AddPaymentModel>() {
             @Override

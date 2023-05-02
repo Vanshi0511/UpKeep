@@ -1,4 +1,4 @@
-package com.example.upkeep.chat_fragments;
+package com.example.upkeep.fragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.upkeep.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ChatGroupFragmentTab#newInstance} factory method to
+ * Use the {@link ChatGroupFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChatGroupFragmentTab extends Fragment {
+public class ChatGroupFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class ChatGroupFragmentTab extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ChatGroupFragmentTab() {
+    public ChatGroupFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class ChatGroupFragmentTab extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ChatGroupFragmentTab.
+     * @return A new instance of fragment ChatGroupFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ChatGroupFragmentTab newInstance(String param1, String param2) {
-        ChatGroupFragmentTab fragment = new ChatGroupFragmentTab();
+    public static ChatGroupFragment newInstance(String param1, String param2) {
+        ChatGroupFragment fragment = new ChatGroupFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class ChatGroupFragmentTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat_group_child, container, false);
+        return inflater.inflate(R.layout.fragment_chat_group, container, false);
     }
 }

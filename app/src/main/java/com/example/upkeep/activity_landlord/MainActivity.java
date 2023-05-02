@@ -29,8 +29,8 @@ import android.widget.Toast;
 import com.example.upkeep.R;
 import com.example.upkeep.SharedPref;
 import com.example.upkeep.auth.AccountLoginActivity;
-import com.example.upkeep.chat_fragments.ChatFragment;
 import com.example.upkeep.fragments.BankingFragment;
+import com.example.upkeep.fragments.ChatFragment;
 import com.example.upkeep.fragments.HomeFragment;
 import com.example.upkeep.fragments.HomeFragment2;
 import com.example.upkeep.fragments.RepairFragment;
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.chat_bottom:
                             toolbarTitle.setText("CHAT");
-                            loadFragment(new ChatFragment(MainActivity.this), 1);
+                            loadFragment(new ChatFragment(), 1);
                             break;
                     }
                 }
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.chats:
                         fragment = getSupportFragmentManager().findFragmentById(R.id.frame);
                         if(!(fragment instanceof ChatFragment))
-                            loadFragment(new ChatFragment(MainActivity.this),1);
+                            loadFragment(new ChatFragment(),1);
                         onBackPressed();
                         break;
                 }

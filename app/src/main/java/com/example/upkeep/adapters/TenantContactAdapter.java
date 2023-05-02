@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,12 +47,14 @@ public class TenantContactAdapter extends RecyclerView.Adapter<TenantContactAdap
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView drawReceivedAwait , chat , call;
+        private TextView name;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             drawReceivedAwait = itemView.findViewById(R.id.drawReceivedAwait);
             chat = itemView.findViewById(R.id.imgChat);
             call = itemView.findViewById(R.id.imgCall);
+            name = itemView.findViewById(R.id.name);
         }
     }
 }

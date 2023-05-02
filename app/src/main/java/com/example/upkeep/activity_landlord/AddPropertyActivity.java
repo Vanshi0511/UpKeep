@@ -1,5 +1,7 @@
 package com.example.upkeep.activity_landlord;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -18,6 +20,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -35,6 +38,10 @@ import com.example.upkeep.ApiController;
 import com.example.upkeep.R;
 import com.example.upkeep.SharedPref;
 import com.example.upkeep.models.AddPropertyModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.net.UnknownHostException;
@@ -62,7 +69,7 @@ public class AddPropertyActivity extends AppCompatActivity {
 
     private EditText propertyName, totalRoom, address1, address2, city, postCode, description;
 
-
+    private DatabaseReference mDatabase;
     private String propName, totRoom, add1, add2, cit, postCod, desc;
     Spinner propCapacity;
 
@@ -257,6 +264,10 @@ public class AddPropertyActivity extends AppCompatActivity {
         } else {
             //todo perform a task
             progressBar.setVisibility(View.VISIBLE);
+            //addPropertyToFirebase(propName, totRoom, propertyCapacity, add1, add2, state, cit, postCod, desc, null);
+
+
+
             AddPropertyModel model = new AddPropertyModel(propName, totRoom, propertyCapacity, add1, add2, state, cit, postCod, desc, null);
             addData(model);
         }
@@ -276,17 +287,28 @@ public class AddPropertyActivity extends AppCompatActivity {
         RequestBody description = RequestBody.create(MediaType.parse("multipart/form_data"), model.getDescription());
 
         MultipartBody.Part image = null;
+        File file = null;
+        try {
+            //  file = new File(model.getImage()); //FILE PATH
+            //System.out.println("============ FILE PATH =========== "+model.getImage());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
+        if (file != null) {
+            RequestBody imageFile = RequestBody.create(MediaType.parse("multipart/form_data"), file);
+            image = MultipartBody.Part.createFormData("image", file.getName(), imageFile);
+        }
 
-        if (propertyImage == null) {
-            Toast.makeText(this, "Insert image also", Toast.LENGTH_SHORT).show();
-            progressBar.setVisibility(View.GONE);
-        } else {
-            File file = new File(getPath());
-            if (file != null) {
-                RequestBody imageFile = RequestBody.create(MediaType.parse("multipart/form_data"), file);
-                image = MultipartBody.Part.createFormData("image", file.getName(), imageFile);
-            }
+//        if (propertyImage == null) {
+//            Toast.makeText(this, "Insert image also", Toast.LENGTH_SHORT).show();
+//            progressBar.setVisibility(View.GONE);
+//        } else {
+//            File file = new File(getPath());
+//            if (file != null) {
+//                RequestBody imageFile = RequestBody.create(MediaType.parse("multipart/form_data"), file);
+//                image = MultipartBody.Part.createFormData("image", file.getName(), imageFile);
+//            }
 
 
             Call<AddPropertyModel> call = ApiController.getInstance() // need a URL
@@ -315,7 +337,7 @@ public class AddPropertyActivity extends AppCompatActivity {
             });
 
         }
-    }
+    //}
 
 
     @Override
@@ -377,4 +399,33 @@ public class AddPropertyActivity extends AppCompatActivity {
 
         //find the images by getChild or put the uri in arraylist.
     }
+    public void addPropertyToFirebase(String propertyName, String totalRoom, String propertyCapacity, String address1, String address2, String state, String city, String postCode, String description, String image) {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        // Generate a unique key for the property
+        String propertyId = mDatabase.child("properties").push().getKey();
+
+        // Create a new property model object
+        AddPropertyModel property = new AddPropertyModel(propertyName, totalRoom, propertyCapacity, address1, address2, state, city, postCode, description, image);
+
+        // Save the property to the database
+        mDatabase.child("properties").child(propertyId).setValue(property).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                // Property saved successfully
+                Toast.makeText(AddPropertyActivity.this, "Property saved successfully", Toast.LENGTH_SHORT).show();
+
+                Log.d(TAG, "Property saved successfully");
+                progressBar.setVisibility(View.GONE);
+                onBackPressed();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Failed to save property
+                Log.e(TAG, "Failed to save property: " + e.getMessage());
+            }
+        });
+    }
+
 }

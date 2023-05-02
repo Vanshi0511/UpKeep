@@ -24,6 +24,11 @@ import com.example.upkeep.adapters.RepairContactAdapter;
 import com.example.upkeep.models.AddPropertyModel;
 import com.example.upkeep.models.AddRepairContactModel;
 import com.example.upkeep.models.RepairFragmentModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -36,22 +41,55 @@ import retrofit2.Response;
 
 public class RepairFragment extends Fragment {
 
-
+    List<AddRepairContactModel> repairContactModelList = new ArrayList<>() ;
     private Activity activity;
     private ProgressBar progressBar;
     private TextView tvNoRepairFound;
     private RecyclerView recyclerView;
-
+    private DatabaseReference mDatabase;
     public RepairFragment(Activity activity) {
         this.activity = activity;
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Initialize database reference
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Repair Contact");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_repair, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_repair, container, false);
+
+
+        // Add value event listener to database reference
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called when the data in the database changes
+                // You can retrieve the data using the dataSnapshot parameter
+                // For example:
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    AddRepairContactModel model = snapshot.getValue(AddRepairContactModel.class);
+                    repairContactModelList.add(model);
+                    // etc.
+                }
+                setListWithAdapter();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+        return view;
+
+}
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -62,7 +100,7 @@ public class RepairFragment extends Fragment {
         progressBar = view.findViewById(R.id.progress_bar);
         recyclerView = view.findViewById(R.id.recyclerView);
 
-        getRepairContactFromServer();
+        //getRepairContactFromServer();
     }
 
     private void getRepairContactFromServer() {
@@ -78,7 +116,7 @@ public class RepairFragment extends Fragment {
                         tvNoRepairFound.setVisibility(View.VISIBLE);
                     else {
                         progressBar.setVisibility(View.GONE);
-                        setListWithAdapter((ArrayList) repairContactModelList);
+                        //setListWithAdapter((ArrayList) repairContactModelList);
                     }
                 } else {
                     progressBar.setVisibility(View.GONE);
@@ -97,8 +135,8 @@ public class RepairFragment extends Fragment {
         });
     }
 
-    private void setListWithAdapter(ArrayList<AddRepairContactModel> list) {
-        RepairContactAdapter adapter = new RepairContactAdapter(getContext(), list);
+    private void setListWithAdapter() {
+        RepairContactAdapter adapter = new RepairContactAdapter(getContext(), (ArrayList<AddRepairContactModel>) repairContactModelList);
         recyclerView.setAdapter(adapter);
         progressBar.setVisibility(View.GONE);
     }

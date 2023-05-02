@@ -52,6 +52,7 @@ public class RepairContactAdapter extends RecyclerView.Adapter<RepairContactAdap
     public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         holder.typeofRepair.setText(model.get(position).getType_of_repairs());
+        holder.contactNo.setText(model.get(position).getContact_no());
         //holder.address.setText(model.get(position).get);
         //Glide.with(context).load(Uri.parse(model.get(position).get))
         holder.btnLayout.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +135,7 @@ public class RepairContactAdapter extends RecyclerView.Adapter<RepairContactAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView typeofRepair,address , propertyName,propertyAddress;
+        private TextView typeofRepair,contactNo , propertyName,propertyAddress,name;
         private CheckBox checkBox;
         private ImageView imageView,arrow,repairImage;
         private RelativeLayout btnLayout , expandLayout;
@@ -143,7 +144,7 @@ public class RepairContactAdapter extends RecyclerView.Adapter<RepairContactAdap
             super(itemView);
 
             typeofRepair = itemView.findViewById(R.id.typeOfRepair);
-            address = itemView.findViewById(R.id.address);
+            contactNo = itemView.findViewById(R.id.contactNo);
             repairImage = itemView.findViewById(R.id.image);
             propertyName = itemView.findViewById(R.id.propertyName);
             propertyAddress = itemView.findViewById(R.id.propertyAddress);
@@ -152,6 +153,8 @@ public class RepairContactAdapter extends RecyclerView.Adapter<RepairContactAdap
             arrow = itemView.findViewById(R.id.arrow);
             btnLayout= itemView.findViewById(R.id.relative1);
             expandLayout= itemView.findViewById(R.id.relative2);
+
+            name = itemView.findViewById(R.id.name);
 
             btnTenantContact = itemView.findViewById(R.id.btnTenantContact);
             btnRepairContact = itemView.findViewById(R.id.btnRepairContact);

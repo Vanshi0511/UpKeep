@@ -3,6 +3,7 @@ package com.example.upkeep.auth;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -27,12 +28,21 @@ import android.widget.Toast;
 import com.example.upkeep.ApiController;
 import com.example.upkeep.CurrentLocationActivity;
 import com.example.upkeep.R;
+import com.example.upkeep.activity_landlord.MainActivity;
 import com.example.upkeep.models.RegisterModel;
 import com.example.upkeep.models.RegisterResponseModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,7 +59,8 @@ public class SignUpActivity extends AppCompatActivity {
     private ImageView backBtn;
     private Button btnSignUp;
     private ProgressBar progressBar;
-
+    FirebaseAuth auth;
+    DatabaseReference reference;
     private EditText username, emailAddress, password, confirmPassword, phoneNumber ;
     private Spinner typeOfUser;
     private RadioButton genderMale , genderFemale ;
@@ -70,6 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.confirmPassword);
 
+        auth = FirebaseAuth.getInstance();
 
         image=findViewById(R.id.imgUser);
         phoneNumber = findViewById(R.id.phoneNumber);
@@ -160,7 +172,8 @@ public class SignUpActivity extends AppCompatActivity {
                             confirmPassword.setError("Password not matched");
                             confirmPassword.requestFocus();
                         } else {
-                            progressBar.setVisibility(View.VISIBLE);
+//                            progressBar.setVisibility(View.VISIBLE);
+//                            register(user,email,pass,confirmPass,phone,gender,typeUser);
                             RegisterModel model =new RegisterModel(user,email,pass,confirmPass,phone,gender,typeUser);
                             callRegistration(model);
                         }
@@ -252,4 +265,42 @@ public class SignUpActivity extends AppCompatActivity {
 
         return cursor.getString(column_index);
     }
+    private void register(String username, String email, String password, String confirm_password, String phone_number, String gender, String type_of_user) {
+        if (!password.equals(confirm_password)) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                FirebaseUser firebaseUser = auth.getCurrentUser();
+                if (firebaseUser == null) {
+                    Toast.makeText(this, "Failed to register, please try again", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String userid = firebaseUser.getUid();
+                reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("id", userid);
+                hashMap.put("username", username);
+                hashMap.put("email", email);
+                hashMap.put("phone_number", phone_number);
+                hashMap.put("gender", gender);
+                hashMap.put("type_of_user", type_of_user);
+                hashMap.put("imageURL", "default");
+                reference.setValue(hashMap).addOnCompleteListener(task1 -> {
+                    if (task1.isSuccessful()) {
+                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, "Failed to register, please try again", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(SignUpActivity.this, "Failed to register, please try again", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

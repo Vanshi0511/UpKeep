@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "474064267702",
-    "project_id": "upkeep-4f603",
-    "storage_bucket": "upkeep-4f603.appspot.com"
+    "project_number": "1027204043627",
+    "project_id": "upkeep-84163",
+    "storage_bucket": "upkeep-84163.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:474064267702:android:e130c64579ac08d46cf917",
+        "mobilesdk_app_id": "1:1027204043627:android:7f310900c655d7c393722e",
         "android_client_info": {
-          "package_name": "com.arbutus.upkeep"
+          "package_name": "com.example.upkeep"
         }
       },
       "oauth_client": [
         {
-          "client_id": "474064267702-elsa7mq4r5l69hlg3b3rtds2tlhk1ne4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.arbutus.upkeep",
-            "certificate_hash": "bde07d4359a9ef9655f6ef912f378ee915e52898"
-          }
-        },
-        {
-          "client_id": "474064267702-qci2pal5k38t348o3sdb5gp0oe6rpl5g.apps.googleusercontent.com",
+          "client_id": "1027204043627-amruod49dvvn078mkk0qc0k516ig7ipk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCyX-hQyo28WAWTGwXF8PRmcqYd0U_c_iM"
+          "current_key": "AIzaSyBydpxP2FvdOWvo_BceVv04BivE2mVNRZM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "474064267702-qci2pal5k38t348o3sdb5gp0oe6rpl5g.apps.googleusercontent.com",
+              "client_id": "1027204043627-amruod49dvvn078mkk0qc0k516ig7ipk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -28,8 +28,8 @@ import com.example.upkeep.activity_landlord.EditProfileActivity;
 import com.example.upkeep.activity_landlord.SupportActivity;
 import com.example.upkeep.activity_landlord.TermsAndConditionsActivity;
 import com.example.upkeep.auth.AccountLoginActivity;
-import com.example.upkeep.chat_fragments.ChatFragment;
 import com.example.upkeep.fragments.BankingFragment;
+import com.example.upkeep.fragments.ChatFragment;
 import com.example.upkeep.fragments.HomeFragment;
 import com.example.upkeep.fragments.MypropertyFragment;
 import com.example.upkeep.fragments.RepairFragment;
@@ -89,7 +89,7 @@ toolbarTitle = findViewById(R.id.toolbarTitle);
                             break;
                         case R.id.chat_bottom:
                             toolbarTitle.setText("CHAT");
-                            loadFragment(new ChatFragment(MainTenantActivity.this), 1);
+                            loadFragment(new ChatFragment(), 1);
                             break;
                     }
                 }
@@ -145,7 +145,7 @@ toolbarTitle = findViewById(R.id.toolbarTitle);
                     case R.id.chats:
                         fragment = getSupportFragmentManager().findFragmentById(R.id.frame);
                         if(!(fragment instanceof ChatFragment))
-                            loadFragment(new ChatFragment(MainTenantActivity.this),1);
+                            loadFragment(new ChatFragment(),1);
                         onBackPressed();
                         break;
                 }
