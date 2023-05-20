@@ -64,7 +64,7 @@ public interface ApiSets {
 
     //for getting property
    // @GET("/Property/prop/")
-    @GET("/admin_panel/property")
+    @GET("/api/user/properties")
     Call<List<AddPropertyModel>> getProperty(@Header("Authorization") String authToken);
 
     //for add payment card

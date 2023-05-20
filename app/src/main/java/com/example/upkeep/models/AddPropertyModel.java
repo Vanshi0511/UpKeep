@@ -1,6 +1,8 @@
 package com.example.upkeep.models;
 
-public class AddPropertyModel {
+import android.net.Uri;
+
+public class    AddPropertyModel {
 
     private String propertyName;
     private String totalRoom;
@@ -11,9 +13,9 @@ public class AddPropertyModel {
     private String city;
     private String postCode;
     private String description;
-    private String image;
+    private Uri image;
 
-    public AddPropertyModel(String propertyName, String totalRoom, String propertyCapacity, String address1, String address2, String state, String city, String postCode, String description , String image) {
+    public AddPropertyModel(String propertyName, String totalRoom, String propertyCapacity, String address1, String address2, String state, String city, String postCode, String description , Uri image) {
         this.propertyName = propertyName;
         this.totalRoom = totalRoom;
         this.propertyCapacity = propertyCapacity;
@@ -98,11 +100,11 @@ public class AddPropertyModel {
         this.description = description;
     }
 
-    public String getImage() {
+    public Uri getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Uri image) {
         this.image = image;
     }
 }

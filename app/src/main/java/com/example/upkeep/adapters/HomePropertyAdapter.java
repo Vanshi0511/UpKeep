@@ -47,7 +47,7 @@ public class HomePropertyAdapter extends RecyclerView.Adapter<HomePropertyAdapte
         holder.propertyName.setText(list.get(position).getPropertyName());
         holder.propertyAddress.setText(list.get(position).getAddress1());
 
-        Glide.with(context).load(Uri.parse(list.get(position).getImage())).into(holder.propertyImage);
+        //Glide.with(context).load(Uri.parse(list.get(position).getImage())).into(holder.propertyImage);
         //click listener
         holder.cardLayout.setOnClickListener(new View.OnClickListener() {
             @Override

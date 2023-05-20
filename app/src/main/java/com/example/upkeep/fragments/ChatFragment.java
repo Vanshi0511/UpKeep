@@ -67,7 +67,7 @@ public class ChatFragment extends Fragment {
                 for (DataSnapshot snapshot1 : datasnapshot.getChildren())
                 {
                     User user = snapshot1.getValue(User.class);
-                    if (!user.getId().equals(firebaseUser.getUid())){
+                    if (!user.getUsername().equals(firebaseUser.getUid())){
                         users.add(user);
                     }
                 }

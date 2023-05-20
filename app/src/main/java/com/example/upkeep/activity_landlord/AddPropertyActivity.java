@@ -18,6 +18,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
@@ -34,8 +35,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+
 import com.example.upkeep.ApiController;
 import com.example.upkeep.R;
+import com.example.upkeep.RealPathUtils;
 import com.example.upkeep.SharedPref;
 import com.example.upkeep.models.AddPropertyModel;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -133,6 +136,8 @@ public class AddPropertyActivity extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             propertyImage = result.getData().getData();
+
+                            System.out.println("========= URI image ======== "+propertyImage.toString());
                             insertImage();
                         }
                     }
@@ -268,7 +273,7 @@ public class AddPropertyActivity extends AppCompatActivity {
 
 
 
-            AddPropertyModel model = new AddPropertyModel(propName, totRoom, propertyCapacity, add1, add2, state, cit, postCod, desc, null);
+            AddPropertyModel model = new AddPropertyModel(propName, totRoom, propertyCapacity, add1, add2, state, cit, postCod, desc, propertyImage);
             addData(model);
         }
     }
@@ -289,21 +294,25 @@ public class AddPropertyActivity extends AppCompatActivity {
         MultipartBody.Part image = null;
         File file = null;
         try {
-            //  file = new File(model.getImage()); //FILE PATH
-            //System.out.println("============ FILE PATH =========== "+model.getImage());
+             String imagePath = RealPathUtils.getRealPath(this,model.getImage());
+             file = new File(imagePath); //FILE PATHSystem.out.println("============ FILE PATH =========== "+imagePath);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
-        if (file != null) {
-            RequestBody imageFile = RequestBody.create(MediaType.parse("multipart/form_data"), file);
-            image = MultipartBody.Part.createFormData("image", file.getName(), imageFile);
-        }
 
-//        if (propertyImage == null) {
-//            Toast.makeText(this, "Insert image also", Toast.LENGTH_SHORT).show();
-//            progressBar.setVisibility(View.GONE);
-//        } else {
+        if (propertyImage == null) {
+            Toast.makeText(this, "Insert image also", Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+        } else {
+
+            if (file != null) {
+                Toast.makeText(this, "kkkk", Toast.LENGTH_SHORT).show();
+                RequestBody imageFile = RequestBody.create(MediaType.parse("multipart/form_data"), file);
+                image = MultipartBody.Part.createFormData("image", file.getName(), imageFile);
+            }
+
+        }
 //            File file = new File(getPath());
 //            if (file != null) {
 //                RequestBody imageFile = RequestBody.create(MediaType.parse("multipart/form_data"), file);
@@ -399,6 +408,21 @@ public class AddPropertyActivity extends AppCompatActivity {
 
         //find the images by getChild or put the uri in arraylist.
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void addPropertyToFirebase(String propertyName, String totalRoom, String propertyCapacity, String address1, String address2, String state, String city, String postCode, String description, String image) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -406,7 +430,7 @@ public class AddPropertyActivity extends AppCompatActivity {
         String propertyId = mDatabase.child("properties").push().getKey();
 
         // Create a new property model object
-        AddPropertyModel property = new AddPropertyModel(propertyName, totalRoom, propertyCapacity, address1, address2, state, city, postCode, description, image);
+        AddPropertyModel property = new AddPropertyModel(propertyName, totalRoom, propertyCapacity, address1, address2, state, city, postCode, description, null);
 
         // Save the property to the database
         mDatabase.child("properties").child(propertyId).setValue(property).addOnSuccessListener(new OnSuccessListener<Void>() {
